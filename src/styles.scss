@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+p {
+    color: red;
+}
+
+.header {
+    padding: 6rem;
+    text-align: center;
+    background-color: darkgray;
+    text-decoration: underline;
+}
+
+.container {
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
