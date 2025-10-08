@@ -3,3 +3,16 @@
     display: block;
     margin: 0;
 }
+
+#content {
+    padding: 2rem;
+}
+
+.container {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    max-width: none;
+    box-sizing: content-box;
+    overflow: hidden;
+}

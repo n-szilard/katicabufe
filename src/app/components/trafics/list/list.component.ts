@@ -2,18 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from "@angular/router";
 import axios from 'axios';
 import { NgForOf } from "@angular/common";
+import { Traffic } from '../../../interfaces/traffic';
 
-interface Traffic {
-  id: Number;
-  termek: string; 
-  vevo: string;
-  kategoriaId: number;
-  egyseg: string;
-  nettoar: number;
-  mennyiseg: number;
-  kiadva: boolean;
-  kategoriaNev: string;
-}
 
 @Component({
   selector: 'app-trafficlist',

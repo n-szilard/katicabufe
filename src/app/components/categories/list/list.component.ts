@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import axios, { AxiosError } from 'axios';
 import { CommonModule, NgForOf } from "@angular/common";
+import { Category } from '../../../interfaces/category';
 
-interface Category {
-  id: number;
-  kategoriaNev: string;
-}
 
 @Component({
   selector: 'app-catlist',
