@@ -9,10 +9,22 @@
             <th>Termék</th>
             <th>Vevő</th>
             <th class="text-end">Mennyiség</th>
-            <th class="text-end">Nettó ár</th>
+            <th>Nettó ár</th>
             <th class="text-end">Összesen</th>
             <th>Kiadva</th>
         </tr>
     </thead>
+    <tbody>
+        <tr *ngFor="let traffic of traffics; index as i">
+            <td>{{i+1}}</td>
+            <td>{{traffic.kategoriaNev}}</td>
+            <td>{{traffic.termek}}</td>
+            <td>{{traffic.vevo}}</td>
+            <td class="text-end">{{traffic.mennyiseg}} {{traffic.egyseg}}</td>
+            <td class="text-end">{{traffic.nettoar}} Ft</td>
+            <td class="text-end">{{traffic.mennyiseg * traffic.nettoar}} Ft</td>
+            <td>{{ traffic.kiadva ? 'Igen' : 'Nem'}}</td>
+        </tr>
+    </tbody>
 </table>
 <button type="button" class="btn btn-primary mb-3" routerLink="/trafficform">Adatok felvétele</button>
