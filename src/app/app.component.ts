@@ -4,8 +4,8 @@ import { HeaderComponent } from "./components/header/header.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { StatComponent } from "./components/stat/stat.component";
 import { FooterComponent } from "./components/footer/footer.component";
-import { TrafficListComponent as TrafficListComponent } from "./components/trafics/list/list.component";
-import { CatListComponent as CategoryListComponent } from './components/categories/list/list.component';
+import { TrafficListComponent} from "./components/trafics/list/list.component";
+import { CatListComponent} from './components/categories/list/list.component';
 
 @Component({
   selector: 'app-root',
@@ -17,11 +17,13 @@ import { CatListComponent as CategoryListComponent } from './components/categori
     StatComponent,
     FooterComponent,
     TrafficListComponent,
-    CategoryListComponent
+    CatListComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'katicabufe';
+  appTitle = 'Katica Büfé App';
+  company = 'Bajai SZC Türr István Technikum';
+  author = 'Nagyapáti Szilárd 13.A'
 }
