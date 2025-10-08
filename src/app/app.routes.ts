@@ -7,6 +7,7 @@ import { ProductsFormComponent } from './components/products/products-form/produ
 import { ProductListComponent } from './components/products/product-list/product-list.component';
 import { CustomersListComponent } from './components/customers/customers-list/customers-list.component';
 import { CustomersFormComponent } from './components/customers/customers-form/customers-form.component';
+import { ArlistaComponent } from './components/arlista/arlista.component';
 
 export const routes: Routes = [
     {
@@ -40,5 +41,9 @@ export const routes: Routes = [
     {
         path: 'customersform',
         component: CustomersFormComponent
+    },
+    {
+        path: 'prices',
+        component: ArlistaComponent
     }
 ];
