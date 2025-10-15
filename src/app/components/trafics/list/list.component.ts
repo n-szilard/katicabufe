@@ -3,6 +3,8 @@ import { RouterLink } from "@angular/router";
 import axios from 'axios';
 import { NgForOf } from "@angular/common";
 import { Traffic } from '../../../interfaces/traffic';
+import { ApiService } from '../../../services/api.service';
+import { apiRES } from '../../../interfaces/apiRES';
 
 
 @Component({
@@ -13,15 +15,19 @@ import { Traffic } from '../../../interfaces/traffic';
   styleUrl: './list.component.scss'
 })
 export class TrafficListComponent implements OnInit{
-  traffics: Traffic[] = [];
-  async ngOnInit() {
-    try {
-      const response = await axios.get('http://localhost:3000/traffic');
-      this.traffics = response.data;
-
-    } catch (error: any) {
-      console.log(error.message);
-      alert('Hiba történt az adatbázis elérésekor!')
+    constructor(private api:ApiService) {
+  
     }
-  }
+  
+    traffics: Traffic[] = [];
+  
+    async ngOnInit() {
+      this.api.selectAll('traffic').then((res:apiRES) => {
+        if (res.status == 200) {
+          this.traffics = res.data;
+        } else {
+          alert(res.message);
+        }
+      })
+    }
 }

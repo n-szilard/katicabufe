@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import axios, { AxiosError } from 'axios';
 import { CommonModule, NgForOf } from "@angular/common";
 import { Category } from '../../../interfaces/category';
+import { apiRES } from '../../../interfaces/apiRES';
+import { ApiService } from '../../../services/api.service';
 
 
 @Component({
@@ -16,16 +17,36 @@ import { Category } from '../../../interfaces/category';
 
 export class CatListComponent implements OnInit{
 
+  constructor(private api:ApiService) {
+
+  }
+
   categories: Category[] = [];
 
   async ngOnInit() {
-    try {
-      const response = await axios.get('http://localhost:3000/categories');
-      this.categories = response.data;
+    this.getAllCategories();
+  }
 
-    } catch (error: any) {
-      console.log(error.message);
-      alert('Hiba történt az adatbázis elérésekor!')
+  getAllCategories() {
+    this.api.selectAll('categories').then((res:apiRES) => {
+      if (res.status == 200) {
+        this.categories = res.data;
+      } else {
+        alert(res.message);
+      }
+    })
+  }
+
+  delete(id: number) {
+    if (window.confirm('Biztosan törlöd a kategóriát?')) {
+      this.api.delete('categories', id).then((res: apiRES) =>{
+        if (res.status == 200) {
+          alert(res.message);
+          this.getAllCategories();
+        } else {
+          alert()
+        }
+      })
     }
   }
 }
