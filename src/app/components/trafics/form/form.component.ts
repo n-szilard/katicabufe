@@ -27,8 +27,7 @@ export class TrafficFormComponent implements OnInit {
     egyseg: '',
     nettoar: 0,
     mennyiseg: 0,
-    kiadva: false,
-    kategoriaNev: ''
+    kiadva: false
   }
 
   constructor(
@@ -47,6 +46,30 @@ export class TrafficFormComponent implements OnInit {
   }
 
   save() {
-    console.log('asd')
+    this.api.insert('traffic', this.newTraffic).then((res: apiRES) => {
+      if (res.status == 200) {
+        alert('siker');
+        this.newTraffic = {
+          id: 0,
+          termek: '',
+          vevo: '',
+          kategoriaId: 0,
+          egyseg: '',
+          nettoar: 0,
+          mennyiseg: 0,
+          kiadva: false
+        }
+        this.router.navigate(['trafics']);
+      } else {
+        alert(res.message);
+      }
+    })
+
+    console.log(this.newTraffic.kategoriaId)
+    console.log(this.newTraffic.kiadva)
+
+
+
+
   }
 }

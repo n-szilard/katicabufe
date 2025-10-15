@@ -1,15 +1,15 @@
 <div class="formContainer mt-2">
     <div class="fieldContainer">
-        <input type="text" class="form-control" id="termekField" placeholder="Termék" [(ngModel)] = "newTraffic.termek">
-        <input type="text" class="form-control" id="vevoField" placeholder="Vevő">
-        <select class="form-select" aria-label="Select">
-            <option selected >Válassz kategóriát</option>
-            <option *ngFor="let category of allCategories" value="{{category.id}}">{{category.kategoriaNev}}</option>
+        <input type="text" class="form-control" id="termekField" placeholder="Termék" [(ngModel)]="newTraffic.termek">
+        <input type="text" class="form-control" id="vevoField" placeholder="Vevő" [(ngModel)]="newTraffic.vevo">
+        <select class="form-select" aria-label="Select" [(ngModel)]="newTraffic.kategoriaId">
+            <option [ngValue]="0">Válassz kategóriát</option>
+            <option *ngFor="let category of allCategories" [ngValue]="category.id">{{category.kategoriaNev}}</option>
           </select>
-        <input type="text" class="form-control" id="nettoField" placeholder="Nettó ár">
-        <input type="text" class="form-control" id="mennyisegField" placeholder="Mennyiség">
-        <input type="text" class="form-control" id="egysegField" placeholder="Egység">
-        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+        <input type="number" class="form-control" id="nettoField" placeholder="Nettó ár" [(ngModel)]="newTraffic.nettoar">
+        <input type="number" class="form-control" id="mennyisegField" placeholder="Mennyiség" [(ngModel)]="newTraffic.mennyiseg">
+        <input type="text" class="form-control" id="egysegField" placeholder="Egység" [(ngModel)]="newTraffic.egyseg">
+        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off" [(ngModel)]="newTraffic.kiadva">
         <label class="btn btn-outline-success" for="btn-check-outlined">Kiadva</label><br>
     </div>
     <div class="buttonContainer mt-3">
