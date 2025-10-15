@@ -64,12 +64,5 @@ export class TrafficFormComponent implements OnInit {
         alert(res.message);
       }
     })
-
-    console.log(this.newTraffic.kategoriaId)
-    console.log(this.newTraffic.kiadva)
-
-
-
-
   }
 }
