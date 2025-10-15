@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Category } from '../../../interfaces/category';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms'
 import { ApiService } from '../../../services/api.service';
 import { apiRES } from '../../../interfaces/apiRES';
@@ -13,13 +13,15 @@ import { NgIf } from '@angular/common';
     RouterModule,
     FormsModule,
     NgIf
-],
+  ],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss'
 })
 export class CategoryFormComponent implements OnInit {
 
   id: number | null = null;
+
+  private router = inject(Router);
 
   newCategory: Category = {
     id: 0,
@@ -62,17 +64,29 @@ export class CategoryFormComponent implements OnInit {
       return;
     }
 
-    this.api.insert('categories', this.newCategory).then((res: apiRES) => {
-      if (res.status == 200) {
-        alert(res.message);
-        this.newCategory = {
-          id: 0,
-          kategoriaNev: ''
+    if (!this.id) {
+      this.api.insert('categories', this.newCategory).then((res: apiRES) => {
+        if (res.status == 200) {
+          alert(res.message);
+          this.newCategory = {
+            id: 0,
+            kategoriaNev: ''
+          }
+          this.router.navigate(['/categories']);
+        } else {
+          alert('Valami nem jo')
         }
-      } else {
-        alert('Valami nem jo')
-      }
 
-    })
+      })
+    } else {
+      this.api.update('categories', this.id, this.newCategory).then((res: apiRES) => {
+        if (res.status == 200) {
+          alert(res.message);
+          this.router.navigate(['/categories']);
+        } else {
+          alert('Valami nem jo')
+        }
+      })
+    }
   }
 }
