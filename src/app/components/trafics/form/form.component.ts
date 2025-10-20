@@ -27,7 +27,8 @@ export class TrafficFormComponent implements OnInit {
     egyseg: '',
     nettoar: 0,
     mennyiseg: 0,
-    kiadva: false
+    kiadva: false,
+    kategoriaNev: ''
   }
 
   constructor(
@@ -57,7 +58,8 @@ export class TrafficFormComponent implements OnInit {
           egyseg: '',
           nettoar: 0,
           mennyiseg: 0,
-          kiadva: false
+          kiadva: false,
+          kategoriaNev: ''
         }
         this.router.navigate(['trafics']);
       } else {

@@ -7,8 +7,15 @@
             <th>Név</th>
             <th>Ár</th>
             <th>Kategória</th>
-            <th>Egység</th>
         </tr>
     </thead>
+    <tbody>
+        <tr *ngFor="let product of products; index as i">
+            <td>{{i+1}}</td>
+            <td>{{product.termek}}</td>
+            <td>{{product.nettoar}}/{{product.egyseg}}</td>
+            <td>{{product.kategoriaNev}}</td>
+        </tr>
+    </tbody>
 </table>
 <button class="btn btn-primary" routerLink="/productsform">Adatok felvétele</button>

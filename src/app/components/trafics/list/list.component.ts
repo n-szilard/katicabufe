@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from "@angular/router";
-import axios from 'axios';
 import { NgForOf } from "@angular/common";
 import { Traffic } from '../../../interfaces/traffic';
 import { ApiService } from '../../../services/api.service';

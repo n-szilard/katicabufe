@@ -7,4 +7,5 @@ export interface Traffic {
     nettoar: number;
     mennyiseg: number;
     kiadva: boolean;
+    kategoriaNev: string;
 }
