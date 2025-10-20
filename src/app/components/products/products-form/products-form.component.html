@@ -2,23 +2,25 @@
 <hr>
 <div class="formContainer">
     <div class="form-floating mb-3">
-        <input type="text" id="nev" class="form-control">
+        <input type="text" id="nev" class="form-control" [(ngModel)]="newProduct.termekNev">
         <label for="nev">Termék neve</label>
     </div>
     <div class="form-floating mb-3">
-        <input type="text" id="nev" class="form-control">
+        <input type="number" id="nev" class="form-control" [(ngModel)]="newProduct.nettoAr">
         <label for="nev">Termék ár</label>
     </div>
     <div class="form-floating mb-3">
-        <input type="text" id="nev" class="form-control">
-        <label for="nev">Kategória</label>
-    </div>
-    <div class="form-floating mb-3">
-        <input type="text" id="nev" class="form-control">
+        <input type="text" id="nev" class="form-control" [(ngModel)]="newProduct.egyseg">
         <label for="nev">Egység</label>
+    </div>
+    <div class="form mb-3">
+        <select class="form-select" aria-label="Select" [(ngModel)]="newProduct.kategoriaId">
+            <option [ngValue]="0">Válassz kategóriát</option>
+            <option *ngFor="let category of allCategories" [ngValue]="category.id">{{category.kategoriaNev}}</option>
+        </select>
     </div>
 </div>
 <div class="buttonContainer">
-    <button type="button" class="btn btn-primary">Mentés</button>
+    <button type="button" class="btn btn-primary" (click)="save()">Mentés</button>
     <button class="btn btn-warning" routerLink="/products">Vissza</button>
 </div>

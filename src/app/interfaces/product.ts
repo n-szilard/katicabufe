@@ -1,6 +1,8 @@
 export interface Product {
-    termek: string;
-    nettoar: number;
+    id: number;
+    termekNev: string;
+    nettoAr: number;
     egyseg: string;
-    kategoriaNev: string;
+    kategoriaId: number;
+    kategoriaNev?: string;
 }

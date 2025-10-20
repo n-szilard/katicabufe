@@ -21,6 +21,10 @@ export class ProductListComponent implements OnInit{
   products: Product[] = []
 
   async ngOnInit(){
+    this.getProducts();
+  }
+
+  getProducts() {
     this.api.selectAll('products').then((res: apiRES) => {
       if (res.status == 200) {
         this.products = res.data;
@@ -28,5 +32,18 @@ export class ProductListComponent implements OnInit{
         alert(res.message);
       }
     })
+  }
+
+  delete(id: number) {
+    if (window.confirm('Biztosan törlöd ezt a terméket?')) {
+      this.api.delete('products', id).then((res: apiRES) =>{
+        if (res.status == 200) {
+          alert(res.message);
+          this.getProducts();
+        } else {
+          alert()
+        }
+      })
+    }
   }
 }

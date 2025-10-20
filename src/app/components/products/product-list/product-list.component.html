@@ -7,14 +7,18 @@
             <th>Név</th>
             <th>Ár</th>
             <th>Kategória</th>
+            <th>Műveletek</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let product of products; index as i">
             <td>{{i+1}}</td>
-            <td>{{product.termek}}</td>
-            <td>{{product.nettoar}}/{{product.egyseg}}</td>
+            <td>{{product.termekNev}}</td>
+            <td>{{product.nettoAr}}/{{product.egyseg}}</td>
             <td>{{product.kategoriaNev}}</td>
+            <td>
+                <button class="btn btn-danger" (click)="delete(product.id)">Törlés</button>
+            </td>
         </tr>
     </tbody>
 </table>
