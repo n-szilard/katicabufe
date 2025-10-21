@@ -1,11 +1,19 @@
 <h3>Árlista</h3>
 <hr>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Termék</th>
-            <th>Ár</th>
-        </tr>
-    </thead>
-</table>
+<div *ngFor="let lista of pricelist; index as i">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{lista.kategoria}}</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let termek of lista.termekek">
+                <td>{{termek.termekNev}}</td>
+                <td class="text-end">{{termek.termekAr}} Ft</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 <button class="btn btn-primary">PDF letöltése</button>

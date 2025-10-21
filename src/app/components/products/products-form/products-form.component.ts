@@ -55,8 +55,6 @@ export class ProductsFormComponent implements OnInit {
   }
 
   save() {
-    console.log(this.newProduct)
-
     if (!this.id) {
       this.api.insert('products', this.newProduct).then((res: apiRES) => {
         if (res.status == 200) {
