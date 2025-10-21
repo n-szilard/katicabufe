@@ -1,14 +1,10 @@
 <h3>Vásárló adatok felvétele</h3>
 <hr>
 <div class="form-floating mb-3">
-    <input type="text" id="nev" class="form-control">
+    <input type="text" id="nev" class="form-control" [(ngModel)]="newCustomer.nev">
     <label for="nev">Vásárló név</label>
 </div>
-<div class="form-floating mb-3">
-    <input type="text" id="nev" class="form-control">
-    <label for="nev">Egyéb megjegyzés</label>
-</div>
 <div class="buttonContainer">
-    <button type="button" class="btn btn-primary">Mentés</button>
+    <button type="button" class="btn btn-primary" (click)="save()">Mentés</button>
     <button class="btn btn-warning" routerLink="/customers">Vissza</button>
 </div>

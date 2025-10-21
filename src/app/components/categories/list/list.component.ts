@@ -44,7 +44,7 @@ export class CatListComponent implements OnInit{
           alert(res.message);
           this.getAllCategories();
         } else {
-          alert()
+          alert(res.message)
         }
       })
     }

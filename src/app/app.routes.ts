@@ -49,5 +49,13 @@ export const routes: Routes = [
     {
         path: 'prices',
         component: ArlistaComponent
+    },
+    {
+        path: 'productsform/:id',
+        component: ProductsFormComponent
+    },
+    {
+        path: 'customersform/:id',
+        component: CustomersFormComponent
     }
 ];

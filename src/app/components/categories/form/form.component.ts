@@ -74,7 +74,7 @@ export class CategoryFormComponent implements OnInit {
           }
           this.router.navigate(['/categories']);
         } else {
-          alert('Valami nem jo')
+          alert(res.message)
         }
 
       })
@@ -84,7 +84,7 @@ export class CategoryFormComponent implements OnInit {
           alert(res.message);
           this.router.navigate(['/categories']);
         } else {
-          alert('Valami nem jo')
+          alert(res.message)
         }
       })
     }

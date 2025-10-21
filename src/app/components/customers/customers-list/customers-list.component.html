@@ -5,8 +5,18 @@
         <tr>
             <th>#</th>
             <th>Név</th>
-            <th>Egyéb</th>
+            <th class="text-end">Műveletek</th>
         </tr>
     </thead>
+    <tbody>
+        <tr *ngFor="let customer of customers; index as i">
+            <td>{{i+1}}</td>
+            <td>{{customer.nev}}</td>
+            <td class="text-end">
+                <button class="btn btn-sm btn-warning mx-1" routerLink="/customersform/{{customer.id}}"><i class="bi bi-pencil"></i></button>
+                <button class="btn btn-sm btn-danger" (click)="delete(customer.id)"><i class="bi bi-trash"></i></button>
+            </td>
+        </tr>
+    </tbody>
 </table>
 <button class="btn btn-primary" routerLink="/customersform">Adatok felvétele</button>
